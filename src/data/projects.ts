@@ -17,7 +17,7 @@ export const projects: Project[] = [
     repoUrl: "#"
   },
   {
-    name: "Activation Steering in LLaDA",
+    name: "Activation Steering in LLaDA: Localization, Generalization, and Behavioral Structure",
     description:
       "TUM thesis on activation steering and behavioral evaluation in masked diffusion language models, analyzing refusal, sycophancy, hallucination, transfer behavior, layer depth, and denoising-time effects. Reduced refusal from 68.8% to 3.1% on the main harmful-prompt benchmark and localized strongest steering effects near layer 19 and the first 40 denoising steps.",
     tags: ["Model Evaluation", "LLaDA", "Masked Diffusion LMs", "LLM Safety", "Behavioral Analysis"],

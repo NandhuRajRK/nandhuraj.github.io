@@ -14,7 +14,7 @@ export const experiences: Experience[] = [
       "Built and supported R&D platforms, data and analytics pipelines, system integrations, and internal AI tooling with focus on reliability and execution."
   },
   {
-    role: "B.Sc. Thesis - Activation Steering in LLaDA",
+    role: "B.Sc. Thesis - Activation Steering in LLaDA: Localization, Generalization, and Behavioral Structure",
     org: "Technical University of Munich (TUM)",
     period: "2026",
     summary:
