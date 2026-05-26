@@ -1,0 +1,53 @@
+---
+import CommandButton from "@/components/CommandButton.astro";
+import ConsoleSection from "@/components/ConsoleSection.astro";
+import LogTimeline from "@/components/LogTimeline.astro";
+import { experiences } from "@/data/experience";
+import Layout from "@/layouts/Layout.astro";
+
+const timeline = [
+  {
+    period: "2023-present",
+    label: "Brainlab - Data, AI & Software Systems",
+    summary: experiences[0].summary
+  },
+  {
+    period: "2026",
+    label: "TUM Thesis - Activation Steering in LLaDA",
+    summary: experiences[1].summary
+  },
+  {
+    period: "2025-2026",
+    label: "Crypt - AI Smart Contract Security Platform",
+    summary: experiences[2].summary
+  }
+];
+---
+
+<Layout title="Resume | Nandhu Raj R">
+  <ConsoleSection command="resume_overview">
+    <div class="console-panel space-y-5 p-5">
+      <p class="max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
+        Applied AI and software engineer focused on LLM systems, model evaluation, and product-grade delivery
+        across research and production workflows.
+      </p>
+      <div>
+        <CommandButton href="#" label="Download Resume PDF" />
+      </div>
+    </div>
+  </ConsoleSection>
+
+  <ConsoleSection command="experience_log">
+    <LogTimeline items={timeline} />
+  </ConsoleSection>
+
+  <ConsoleSection command="education">
+    <article class="console-panel p-5">
+      <h3 class="text-base font-semibold">Technical University of Munich (TUM)</h3>
+      <p class="mt-2 font-mono text-xs text-accent">B.Sc. Management & Technology (Computer Engineering specialization)</p>
+      <p class="mt-2 text-sm text-muted sm:text-base">
+        Thesis: Activation steering and behavioral evaluation in masked diffusion language models (LLaDA).
+      </p>
+    </article>
+  </ConsoleSection>
+</Layout>

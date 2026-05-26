@@ -1,0 +1,38 @@
+---
+import Navbar from "@/components/Navbar.astro";
+import "@/styles/global.css";
+
+type Props = {
+  title: string;
+  description?: string;
+};
+
+const { title, description = "Portfolio website for Nandhu Raj R." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen bg-bg text-text">
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <footer class="border-t border-border/80 bg-bg/95 py-6">
+      <div class="container-shell flex flex-col gap-2 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+        <p>© {new Date().getFullYear()} Nandhu Raj R</p>
+      </div>
+    </footer>
+  </body>
+</html>

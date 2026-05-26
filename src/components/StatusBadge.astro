@@ -1,0 +1,19 @@
+---
+type Props = {
+  label: string;
+  tone?: "cyan" | "green" | "violet";
+};
+
+const { label, tone = "cyan" } = Astro.props;
+
+const toneClasses = {
+  cyan: "border-accent/50 text-accent bg-accent/10",
+  green: "border-green/50 text-green bg-green/10",
+  violet: "border-violet/50 text-violet bg-violet/10"
+};
+---
+
+<span class={`inline-flex items-center gap-1 rounded border px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider ${toneClasses[tone]}`}>
+  <span class="h-1.5 w-1.5 rounded-full bg-current opacity-80"></span>
+  {label}
+</span>

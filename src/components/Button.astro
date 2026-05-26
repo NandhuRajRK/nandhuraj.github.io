@@ -1,0 +1,23 @@
+---
+type Props = {
+  href: string;
+  label: string;
+  variant?: "primary" | "secondary";
+  external?: boolean;
+};
+
+const { href, label, variant = "secondary", external = false } = Astro.props;
+---
+
+<a
+  href={href}
+  class={`inline-flex items-center rounded-md border px-4 py-2 text-sm font-medium transition-colors ${
+    variant === "primary"
+      ? "border-accent bg-accent text-bg hover:bg-transparent hover:text-accent"
+      : "border-border bg-panel text-text hover:border-accent hover:text-accent"
+  }`}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noreferrer" : undefined}
+>
+  {label}
+</a>

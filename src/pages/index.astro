@@ -1,0 +1,187 @@
+---
+import CommandButton from "@/components/CommandButton.astro";
+import ConsoleSection from "@/components/ConsoleSection.astro";
+import LogTimeline from "@/components/LogTimeline.astro";
+import ProjectConsoleCard from "@/components/ProjectConsoleCard.astro";
+import StatusBadge from "@/components/StatusBadge.astro";
+import Tag from "@/components/Tag.astro";
+import TerminalWindow from "@/components/TerminalWindow.astro";
+import { projects } from "@/data/projects";
+import { researchExperiments } from "@/data/research";
+import Layout from "@/layouts/Layout.astro";
+
+const systemStatus = [
+  { title: "Brainlab R&D Systems", detail: "platforms, integrations, analytics, internal AI tooling" },
+  { title: "LLaDA Model Evaluation", detail: "activation steering and behavioral analysis workflows" },
+  { title: "Agentic AI Orchestration", detail: "agent workflows, tool routing, and production execution pipelines" },
+  { title: "Applied AI Products", detail: "from prototype to product-grade implementation" }
+];
+
+const stackGroups = [
+  { key: "languages", value: "Python, TypeScript, JavaScript, SQL, Java, R" },
+  {
+    key: "ai_ml",
+    value: "PyTorch, TensorFlow/Keras, scikit-learn, Hugging Face, FinBERT, SHAP, LIME, model evaluation, RAG"
+  },
+  {
+    key: "llm_systems",
+    value: "OpenAI API, Anthropic API, Gemini, Ollama, llama.cpp, Codex CLI, LangChain, LlamaIndex, Pinecone"
+  },
+  { key: "backend", value: "FastAPI, REST APIs, WebSockets, Pydantic, Docker, GitHub Actions, CI/CD" },
+  { key: "frontend", value: "React, Next.js, Tailwind CSS, Vite, Zustand" },
+  { key: "data_cloud", value: "Power BI, Tableau, Azure DevOps, Azure, AWS" }
+];
+
+const timeline = [
+  {
+    period: "2023-present",
+    label: "Brainlab - Data, AI & Software Systems",
+    summary:
+      "Built internal R&D platforms, data pipelines, analytics workflows, integrations, and internal AI prototypes in a complex healthtech R&D environment. Selected work: R&D Cockpit, OAuth Web Data Connector, Power BI/Tableau migration, internal R&D LLM copilot, and EIB/post-market analytics."
+  },
+  {
+    period: "2026",
+    label: "TUM Thesis - Activation Steering in LLaDA",
+    summary:
+      "Studied behavioral control in masked diffusion language models through controlled model-evaluation experiments across model depth, denoising time, refusal, sycophancy, hallucination, and transfer behavior."
+  },
+  {
+    period: "2025-2026",
+    label: "Crypt - AI Smart Contract Security Platform",
+    summary:
+      "Built an AI-assisted security platform with backend orchestration, exploit-validation workflows, structured LLM outputs, monitoring, and audit-report generation."
+  }
+];
+---
+
+<Layout title="Nandhu Raj R | Applied AI / LLM Systems Engineer">
+  <div class="container-shell pt-8 sm:pt-12">
+    <TerminalWindow>
+      <p class="font-mono text-xs text-accent">nandhu@ai-systems:~$ ./profile<span class="blink-cursor">_</span></p>
+      <h1 class="mt-4 text-3xl font-semibold sm:text-5xl">Nandhu Raj R</h1>
+      <p class="mt-3 font-mono text-sm uppercase tracking-wide text-green">Applied AI / LLM Systems Engineer</p>
+      <p class="mt-5 max-w-4xl text-sm leading-relaxed text-muted sm:text-base">
+        Building AI/software systems across model evaluation, RAG workflows, agentic AI orchestration, edge AI, data
+        pipelines, and product-grade AI tooling.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        <StatusBadge label="ONLINE" tone="green" />
+        <StatusBadge label="AGENTIC AI" />
+        <StatusBadge label="MODEL EVAL" tone="violet" />
+        <StatusBadge label="EDGE AI" />
+        <StatusBadge label="AI SYSTEMS" />
+        <StatusBadge label="HEALTHTECH" tone="green" />
+      </div>
+      <div class="mt-7 flex flex-wrap gap-2">
+        <CommandButton href="/projects" label="View Projects" />
+        <CommandButton href="/resume" label="Download Resume" />
+        <CommandButton href="https://github.com/NandhuRajRK" label="GitHub" external />
+        <CommandButton href="https://www.linkedin.com/in/nandhu-raj/" label="LinkedIn" external />
+      </div>
+    </TerminalWindow>
+  </div>
+
+  <ConsoleSection id="about" command="whoami">
+    <div class="console-panel space-y-4 p-5">
+      <p class="max-w-5xl text-sm leading-relaxed text-muted sm:text-base">
+        I recently completed my B.Sc. in Management & Technology at the Technical University of Munich, specializing
+        in Computer Engineering.
+      </p>
+      <p class="max-w-5xl text-sm leading-relaxed text-muted sm:text-base">
+        My work sits at the intersection of AI systems, model evaluation, backend/data workflows, and product
+        execution. Over the past 3+ years at Brainlab, I worked on R&D platforms, data and analytics pipelines,
+        integrations, internal AI tooling, and production-facing prototypes.
+      </p>
+      <p class="max-w-5xl text-sm leading-relaxed text-muted sm:text-base">
+        My thesis focused on activation steering and behavioral evaluation in masked diffusion language models,
+        including refusal, sycophancy, hallucination, transfer behavior, layer depth, and denoising-time effects.
+      </p>
+    </div>
+  </ConsoleSection>
+
+  <ConsoleSection command="system_status">
+    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        systemStatus.map((item) => (
+          <article class="console-panel p-4 transition duration-200 hover:border-accent/60 hover:shadow-[0_0_20px_rgba(102,217,239,0.12)]">
+            <h3 class="font-mono text-xs text-accent">{item.title}</h3>
+            <p class="mt-2 text-xs leading-relaxed text-muted">{item.detail}</p>
+          </article>
+        ))
+      }
+    </div>
+  </ConsoleSection>
+
+  <ConsoleSection id="projects" command="featured_systems">
+    <div class="grid gap-4 md:grid-cols-2">
+      {projects.map((project) => <ProjectConsoleCard project={project} />)}
+    </div>
+  </ConsoleSection>
+
+  <ConsoleSection command="research_experiments">
+    <div class="grid gap-4 md:grid-cols-2">
+      {
+        researchExperiments.map((item) => (
+          <article class="console-panel p-5">
+            <h3 class="text-base font-semibold">{item.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted">{item.description}</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {item.tags.map((tag) => <Tag label={tag} />)}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </ConsoleSection>
+
+  <ConsoleSection id="experience" command="experience_log">
+    <LogTimeline items={timeline} />
+  </ConsoleSection>
+
+  <ConsoleSection id="focus" command="technical_stack">
+    <div class="console-panel p-5">
+      <div class="space-y-2 font-mono text-xs sm:text-sm">
+        {
+          stackGroups.map((item) => (
+            <p>
+              <span class="text-green">{item.key}</span>
+              <span class="text-muted"> -&gt; </span>
+              <span class="text-text">{item.value}</span>
+            </p>
+          ))
+        }
+      </div>
+    </div>
+  </ConsoleSection>
+
+  <ConsoleSection command="current_focus">
+    <div class="console-panel p-5">
+      <p class="mb-3 text-sm text-muted">Current focus:</p>
+      <ul class="space-y-2 text-sm text-muted">
+        <li>- Applied AI systems that move beyond prototypes</li>
+        <li>- Mechanistic interpretability and XAI</li>
+        <li>- Agentic AI orchestration</li>
+        <li>- Medical AI, computer vision, and edge AI</li>
+        <li>- Product-grade AI tooling with privacy, reliability, and deployment constraints</li>
+        <li>- LLM evaluation, RAG reliability, and structured AI workflows</li>
+      </ul>
+    </div>
+  </ConsoleSection>
+
+  <ConsoleSection command="other_builds">
+    <div class="console-panel p-5">
+      <p class="font-mono text-xs text-muted">AtlasLift · Museum Break · EvaEpic</p>
+    </div>
+  </ConsoleSection>
+
+  <ConsoleSection id="contact" command="connect">
+    <div class="console-panel p-5 font-mono text-xs sm:text-sm">
+      <p class="text-accent">nandhu@ai-systems:~$ connect</p>
+      <div class="mt-3 grid gap-2 text-muted sm:grid-cols-2">
+        <a class="hover:text-accent" href="https://github.com/NandhuRajRK" target="_blank" rel="noreferrer">GitHub: github.com/NandhuRajRK</a>
+        <a class="hover:text-accent" href="https://www.linkedin.com/in/nandhu-raj/" target="_blank" rel="noreferrer">LinkedIn: linkedin.com/in/nandhu-raj</a>
+        <p>Location: Germany</p>
+      </div>
+    </div>
+  </ConsoleSection>
+</Layout>

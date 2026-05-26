@@ -1,0 +1,23 @@
+---
+import Button from "./Button.astro";
+---
+
+<section class="border-b border-border py-16 sm:py-24">
+  <div class="container-shell">
+    <p class="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-muted">Portfolio</p>
+    <h1 class="max-w-3xl text-3xl font-semibold leading-tight sm:text-5xl">Nandhu Raj R</h1>
+    <p class="mt-4 font-mono text-sm uppercase tracking-[0.1em] text-accent">
+      Applied AI / LLM Systems Engineer
+    </p>
+    <p class="mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
+      Building AI/software systems across model evaluation, RAG, local/cloud orchestration, data workflows,
+      and product-grade AI tooling.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <Button href="/projects" label="View Projects" variant="primary" />
+      <Button href="/resume" label="Download Resume" />
+      <Button href="#" label="GitHub" external />
+      <Button href="#" label="LinkedIn" external />
+    </div>
+  </div>
+</section>

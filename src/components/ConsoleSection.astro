@@ -1,0 +1,15 @@
+---
+type Props = {
+  id?: string;
+  command: string;
+};
+
+const { id, command } = Astro.props;
+---
+
+<section id={id} class="py-10 sm:py-12">
+  <div class="container-shell">
+    <h2 class="mb-5 font-mono text-sm text-accent">$ {command}</h2>
+    <slot />
+  </div>
+</section>

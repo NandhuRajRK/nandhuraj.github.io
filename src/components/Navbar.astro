@@ -1,0 +1,22 @@
+---
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/resume", label: "Resume" }
+];
+---
+
+<header class="sticky top-0 z-20 border-b border-border/80 bg-bg/95 backdrop-blur">
+  <div class="container-shell flex h-16 items-center justify-between">
+    <a href="/" class="font-mono text-sm tracking-wider text-accent">nandhu@ai-systems:~</a>
+    <nav class="flex items-center gap-5">
+      {
+        navItems.map((item) => (
+          <a href={item.href} class="font-mono text-xs uppercase tracking-wide text-muted transition-colors hover:text-accent">
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

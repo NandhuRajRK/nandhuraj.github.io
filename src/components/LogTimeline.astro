@@ -1,0 +1,22 @@
+---
+type LogItem = {
+  period: string;
+  label: string;
+  summary?: string;
+};
+
+const { items } = Astro.props as { items: LogItem[] };
+---
+
+<div class="console-panel p-5 sm:p-6">
+  <ul class="space-y-4">
+    {
+      items.map((item) => (
+        <li class="border-l border-border pl-4">
+          <p class="font-mono text-xs text-accent">[{item.period}] {item.label}</p>
+          {item.summary && <p class="mt-1 text-sm text-muted">{item.summary}</p>}
+        </li>
+      ))
+    }
+  </ul>
+</div>

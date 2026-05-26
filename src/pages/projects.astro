@@ -1,0 +1,19 @@
+---
+import ConsoleSection from "@/components/ConsoleSection.astro";
+import ProjectConsoleCard from "@/components/ProjectConsoleCard.astro";
+import { projects } from "@/data/projects";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Projects | Nandhu Raj R">
+  <ConsoleSection command="list_projects">
+    <div class="console-panel mb-5 p-4">
+      <p class="font-mono text-xs text-muted">
+        selected systems across applied ai, model evaluation, rag workflows, and product engineering
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      {projects.map((project) => <ProjectConsoleCard project={project} />)}
+    </div>
+  </ConsoleSection>
+</Layout>
